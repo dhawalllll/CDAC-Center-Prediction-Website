@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CDAC Center Predictor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 CDAC Center Predictor</h1>
+        <form action="/predict" method="POST">
+            <label for="rank">Enter your CDAC Rank:</label>
+            <input type="number" name="rank" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+        <div class="output">
+            <p>Based on your rank <strong>{{ rank }}</strong>, you are likely to get: 
+            <span class="highlight">{{ result }}</span> level CDAC centre.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
